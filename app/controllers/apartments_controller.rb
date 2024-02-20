@@ -4,4 +4,15 @@ class ApartmentsController < ApplicationController
     render json: apartments
   end
 
+  def create
+   apartment = Apartment.create(apartment_params)
+    if apartment.valid?
+     render json: apartment
+    else
+     render json: apartment.errors, status: 422
+  end
+private
+  def apartment_params
+    params.require(:apartment).permit(:street, :city, :state, :unit, :square_footage, :price, :bedrooms, :bathrooms, :pets, :image, :user_id)
+  end main
 end
