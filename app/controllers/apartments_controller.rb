@@ -10,9 +10,8 @@ class ApartmentsController < ApplicationController
     else
      render json: apartment.errors, status: 422
   end
-end
 private
   def apartment_params
     params.require(:apartment).permit(:street, :city, :state, :unit, :square_footage, :price, :bedrooms, :bathrooms, :pets, :image, :user_id)
   end
-
+end
