@@ -21,6 +21,7 @@ RSpec.describe "Apartments", type: :request do
         image: "https://upload.wikimedia.org/wikipedia/commons/0/00/Sesame_Street_buildings_%28193090534%29.jpg" 
       )
       get '/apartments'
+
       apartment = JSON.parse(response.body)
       expect(response).to have_http_status(200)
       expect(apartment.first['street']).to eq("456 Bogus Blvd")
@@ -34,6 +35,7 @@ RSpec.describe "Apartments", type: :request do
       expect(apartment.first['pets']).to eq("Puppets only")
       expect(apartment.first['image']).to eq("https://upload.wikimedia.org/wikipedia/commons/0/00/Sesame_Street_buildings_%28193090534%29.jpg")
     end
+
   end
   
   it 'creates a new apartment' do
@@ -322,3 +324,8 @@ RSpec.describe "Apartments", type: :request do
   end
 
 end
+
+  end
+
+end
+

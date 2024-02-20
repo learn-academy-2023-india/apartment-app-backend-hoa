@@ -3,6 +3,7 @@ class ApartmentsController < ApplicationController
     apartments = Apartment.all
     render json: apartments
   end
+
   def create
    apartment = Apartment.create(apartment_params)
     if apartment.valid?
@@ -13,5 +14,5 @@ class ApartmentsController < ApplicationController
 private
   def apartment_params
     params.require(:apartment).permit(:street, :city, :state, :unit, :square_footage, :price, :bedrooms, :bathrooms, :pets, :image, :user_id)
-  end
+  end main
 end
